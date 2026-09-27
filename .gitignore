@@ -1,0 +1,11 @@
+.env
+.env.*
+!.env.example
+agent.env
+*.sqlite3*
+__pycache__/
+.pytest_cache/
+*.pyc
+node_modules/
+.grok/
+supabase/.temp/

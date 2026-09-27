@@ -1,0 +1,6 @@
+{
+  "secret": "ssssssssssssssssssssssssssssssssssssssss",
+  "timestamp": 1790500000,
+  "body": "{\"deviceId\":\"skygarden-foyer-01\",\"events\":[],\"heartbeat\":null}",
+  "signature": "87072987e3cddf3ee3ab796813c4089e2f805880b16d5f9dd21a94c48d388d94"
+}

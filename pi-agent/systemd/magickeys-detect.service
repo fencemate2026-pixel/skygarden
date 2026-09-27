@@ -1,0 +1,31 @@
+# MagicKeys Detect agent (read-only sensor agent).
+# Install: see docs/INSTALL.md. Runs as an unprivileged user in the gpio group.
+[Unit]
+Description=MagicKeys Detect agent (read-only Optex/sensor inputs to MagicKeys)
+After=network-online.target time-sync.target
+Wants=network-online.target
+StartLimitIntervalSec=0
+
+[Service]
+Type=notify
+NotifyAccess=main
+User=mkdetect
+Group=mkdetect
+SupplementaryGroups=gpio
+EnvironmentFile=/etc/magickeys-detect/agent.env
+WorkingDirectory=/opt/magickeys-detect/pi-agent
+ExecStart=/usr/bin/python3 -m detect_agent
+# Watchdog: the agent pings every 5 s only while its poll and sender loops are healthy.
+WatchdogSec=60
+Restart=always
+RestartSec=5
+TimeoutStopSec=30
+# Hardening
+NoNewPrivileges=true
+ProtectSystem=strict
+ProtectHome=true
+PrivateTmp=true
+ReadWritePaths=/var/lib/magickeys-detect
+
+[Install]
+WantedBy=multi-user.target

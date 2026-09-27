@@ -1,0 +1,18 @@
+{
+  "schemaVersion": "1.0.0",
+  "site": { "id": "sky-garden", "name": "Sky Garden", "timezone": "Australia/Melbourne" },
+  "device": { "id": "skygarden-foyer-01", "location": "Main foyer" },
+  "gpio": {
+    "chip": 0,
+    "pull": "UP",
+    "pollMs": 10,
+    "inputs": [
+      { "name": "optex_tailgating_1",   "bcm": 5,  "activeLevel": "LOW", "debounceMs": 30,  "event": "TAILGATE",     "mode": "LEVEL" },
+      { "name": "optex_multiple",       "bcm": 6,  "activeLevel": "LOW", "debounceMs": 30,  "event": "MULTIPLE",     "mode": "LEVEL" },
+      { "name": "optex_error",          "bcm": 13, "activeLevel": "LOW", "debounceMs": 200, "event": "SENSOR_ERROR", "mode": "LEVEL" },
+      { "name": "optex_number_of_pass", "bcm": 19, "activeLevel": "LOW", "debounceMs": 20,  "event": "PASS",         "mode": "PULSE" }
+    ]
+  },
+  "uplink": { "batchMax": 50 },
+  "heartbeatSeconds": 60
+}
